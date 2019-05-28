@@ -1,7 +1,7 @@
 <?php
 
-	require 'funcs/conexion.php';
-	include 'funcs/funcs.php';
+	require '../funcs/conexion.php';
+	include '../funcs/funcs.php';
 
 	$errors = array();
 
@@ -73,7 +73,7 @@
 
 					echo "Para terminar el proceso de registro siga las instrucciones que le hemos enviado la direccion de correo electronico: $email";
 
-					echo "<br><a href='index.php' >Iniciar Sesion</a>";
+					echo "<br><a href='../index.php' >Iniciar Sesion</a>";
 					exit;
 
 					} else {
@@ -97,8 +97,8 @@
 	<head>
 		<title>Registro</title>
 
-		<link rel="stylesheet" href="css/bootstrap.min.css" >
-		<link rel="stylesheet" href="css/bootstrap-theme.min.css" >
+		<link rel="stylesheet" href="../css/bootstrap.min.css" >
+		<link rel="stylesheet" href="../css/bootstrap-theme.min.css" >
 		<script src="js/bootstrap.min.js" ></script>
 		<script src='https://www.google.com/recaptcha/api.js'></script>
 	</head>
@@ -109,7 +109,7 @@
 				<div class="panel panel-info">
 					<div class="panel-heading">
 						<div class="panel-title">Reg&iacute;strate</div>
-						<div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="index.php">Iniciar Sesi&oacute;n</a></div>
+						<div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="/index.php">Iniciar Sesi&oacute;n</a></div>
 					</div>
 
 					<div class="panel-body" >

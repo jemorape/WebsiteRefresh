@@ -1,6 +1,6 @@
 <?php
-	require 'funcs/conexion.php';
-	include 'funcs/funcs.php';
+	require '../funcs/conexion.php';
+	include '../funcs/funcs.php';
 
 	session_start();
 
@@ -33,7 +33,7 @@
 
 			if(enviarEmail($email, $nombre, $asunto, $cuerpo)){
 				echo "Hemos enviado un correo electronico a las direcion $email para restablecer tu password.<br />";
-				echo "<a href='index.php' >Iniciar Sesion</a>";
+				echo "<a href='../index.php' >Iniciar Sesion</a>";
 				exit;
 			}
 			} else {
@@ -45,9 +45,9 @@
 	<head>
 		<title>Recuperar Password</title>
 
-		<link rel="stylesheet" href="css/bootstrap.min.css" >
-		<link rel="stylesheet" href="css/bootstrap-theme.min.css" >
-		<script src="js/bootstrap.min.js" ></script>
+		<link rel="stylesheet" href="../css/bootstrap.min.css" >
+		<link rel="stylesheet" href="../css/bootstrap-theme.min.css" >
+		<script src="../js/bootstrap.min.js" ></script>
 	</head>
 
 	<body>
@@ -57,7 +57,7 @@
 				<div class="panel panel-info" >
 					<div class="panel-heading">
 						<div class="panel-title">Recuperar Password</div>
-						<div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="index.php">Iniciar Sesi&oacute;n</a></div>
+						<div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="../index.php">Iniciar Sesi&oacute;n</a></div>
 					</div>
 
 					<div style="padding-top:30px" class="panel-body" >

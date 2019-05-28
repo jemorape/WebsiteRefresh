@@ -1,6 +1,6 @@
 <?php
-	require 'funcs/conexion.php';
-	include 'funcs/funcs.php';
+	require '../funcs/conexion.php';
+	include '../funcs/funcs.php';
 
 	if(isset($_GET["id"]) AND isset($_GET['val']))
 	{
@@ -13,9 +13,9 @@
 <html>
 	<head>
 		<title>Registro</title>
-		<link rel="stylesheet" href="css/bootstrap.min.css" >
-		<link rel="stylesheet" href="css/bootstrap-theme.min.css" >
-		<script src="js/bootstrap.min.js" ></script>
+		<link rel="stylesheet" href="../css/bootstrap.min.css" >
+		<link rel="stylesheet" href="../css/bootstrap-theme.min.css" >
+		<script src="../js/bootstrap.min.js" ></script>
 
 	</head>
 
@@ -26,7 +26,7 @@
 				<h1><?php echo $mensaje; ?></h1>
 
 				<br />
-				<p><a class="btn btn-primary btn-lg" href="index.php" role="button">Iniciar Sesi&oacute;n</a></p>
+				<p><a class="btn btn-primary btn-lg" href="../index.php" role="button">Iniciar Sesi&oacute;n</a></p>
 			</div>
 		</div>
 	</body>
