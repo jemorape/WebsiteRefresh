@@ -18,7 +18,9 @@ $row = $result->fetch_assoc();
 <html>
 <head>
 	<title>Empresa</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -98,10 +100,11 @@ $row = $result->fetch_assoc();
         </div>
     </div>
 			<br />
-		<div id="surveyElement"></div>
-			<div id="surveyResult"></div>
+			<div id="surveyElement"></div>
+			<div align="center" id="surveyResult"></div>
 
 			<script type="text/javascript" src="test.js"></script>
+
 
 
 		</div>

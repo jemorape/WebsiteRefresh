@@ -193,7 +193,7 @@ survey
     .add(function (result) {
         document
             .querySelector('#surveyResult')
-            .innerHTML = "result: " + JSON.stringify(result.data);
+            .innerHTML = '<a href="../paginas/grafica.php">Click para ver tus resultados</a>';
     });
 
 survey.showProgressBar = 'bottom';

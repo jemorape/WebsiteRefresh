@@ -19,6 +19,7 @@ $row = $result->fetch_assoc();
 <head>
 	<title>Empresa</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -27,91 +28,90 @@ $row = $result->fetch_assoc();
 	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
 	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-	<script src="main.js" ></script>
+	<script src="../paginas/main.js" ></script>
 	<link rel="stylesheet" href="../estilos/css/bootstrap.min.css">
 	<script src="../estilos/js/jquery-3.3.1.min.js"></script>
 	<script src="../estilos/js/popper.min.js" ></script>
 	<script src="../estilos/js/bootstrap.min.js" ></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<script src="https://unpkg.com/jquery"></script>
-	<script src="https://surveyjs.azureedge.net/1.0.87/survey.jquery.js"></script>
-	<link href="https://surveyjs.azureedge.net/1.0.87/survey.css" type="text/css" rel="stylesheet"/>
-
-
-	<style>
-	body {
-		padding-top: 20px;
-		padding-bottom: 20px;
-	}
-	</style>
 </head>
+
 
 <body>
 
 		<nav style="background-color: white;" class="navbar navbar-expand-lg navbar-default bg-default">
 		<div class="navbar-header">
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
-			</button>
-			</div>
+		  </button>
+		  </div>
 		 <a style="padding-top: 0px;" class="navbar-brand" href="../index.php">
-			<img src="../img/logo.png" style="width: 100px; height:50px; " class="d-inline-block align-top" alt=""/>
-				</a>
-			<div class="collapse navbar-collapse" id="navbarNavDropdown">
+		  <img src="../img/logo.png" style="width: 100px; height:50px; " class="d-inline-block align-top" alt=""/>
+        </a>
+		  <div class="collapse navbar-collapse" id="navbarNavDropdown">
 			<ul class="navbar-nav">
 			 <li class="nav-item dropdown">
 			 <?php if($_SESSION['tipo_usuario']==1) { ?>
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					Administracion
+				  Administracion
 				</a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-					<a class="dropdown-item" href="../paginas/clientes.php">Clientes</a>
-					<a class="dropdown-item" href="../paginas/usuarios.php">Usuarios</a>
-					<a class="dropdown-item" href="../paginas/perfiles.php">Perfiles</a>
-					<a class="dropdown-item" href="../paginas/permisos.php">Permisos</a>
+				  <a class="dropdown-item" href="../paginas/clientes.php">Clientes</a>
+				  <a class="dropdown-item" href="../paginas/usuarios.php">Usuarios</a>
+				  <a class="dropdown-item" href="../paginas/perfiles.php">Perfiles</a>
+				  <a class="dropdown-item" href="../paginas/permisos.php">Permisos</a>
 				</div>
-				</li>
-				<?php } ?>
-				<li class="nav-item dropdown">
-				<?php if($_SESSION['tipo_usuario']==1) { ?>
+			  </li>
+			  <?php } ?>
+			  <li class="nav-item dropdown">
+			  <?php if($_SESSION['tipo_usuario']==1 || $_SESSION['tipo_usuario']==2) { ?>
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					Operacion
+				  Operacion
 				</a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-					<a class="dropdown-item" href="../paginas/test.php">Tests</a>
+				  <a class="dropdown-item" href="../paginas/test.php">Tests</a>
 				</div>
-				</li>
-				<?php } ?>
+			  </li>
+			  <?php } ?>
 			</ul>
 			<ul class='nav navbar-nav navbar-right'>
 						<li><a href='../paginas/logout.php'>Cerrar Sesi&oacute;n</a></li>
 					</ul>
-			</div>
+		  </div>
 		</nav>
 
-			<div style="text-align: center;" class="jumbotron .col-md-6 .col-md-offset-3">
-			<h2><?php echo 'Bienvenido '.utf8_decode($row['nombre']); ?></h1>
-				<p>Continua en el link para realizar tu test</p>
-				<br />
-				<table class="table">
-					<thead class="thead-dark">
-						<tr>
-							<th scope="col">#</th>
-							<th scope="col">Fecha</th>
-							<th scope="col">Estatus</th>
-							<th scope="col">Link</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<th scope="row">1</th>
-							<td><script> document.write(new Date().toLocaleDateString()); </script></td>
-							<td>Pendiente</td>
-							<td><a href="test1.php">Link</a></td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-	</body>
-	</html>
+		<canvas id="test-estres" width="800" height="450"></canvas>
+
+<script>
+var min=15;
+    var max=90;
+    var random1 =Math.floor(Math.random() * (+max - +min)) + +min;
+		var random2 =Math.floor(Math.random() * (+max - +min)) + +min;
+		var random3 =Math.floor(Math.random() * (+max - +min)) + +min;
+		var random4 =Math.floor(Math.random() * (+max - +min)) + +min;
+		var random5 =Math.floor(Math.random() * (+max - +min)) + +min;
+		var random6 =Math.floor(Math.random() * (+max - +min)) + +min;
+		var random7 =Math.floor(Math.random() * (+max - +min)) + +min;
+
+new Chart(document.getElementById("test-estres"), {
+    type: 'polarArea',
+    data: {
+      labels: ["Mi relacion con el trabajo", "Mi relacion con el equipo de trabajo", "Mi relacion con la sociedad", "Mi entorno", "Mi relacion conmigo", "Mi relacion con mi familia", "Mi relacion con mi pareja"],
+      datasets: [
+        {
+          label: "Test estres",
+          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850", "#1a123d","#aaaf11"],
+          data: [random1,random2,random3,random4,random5,random6,random7]
+        }
+      ]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Estres'
+      }
+    }
+});
+</script>
+</body>
+</html>
