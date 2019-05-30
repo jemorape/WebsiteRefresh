@@ -1,5 +1,5 @@
 <?php
-
+	
 	require '../funcs/conexion.php';
 	include '../funcs/funcs.php';
 
